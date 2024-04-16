@@ -1,0 +1,34 @@
+<!-- ======= Breadcrumbs ======= -->
+<div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/img/contact-header.jpg');">
+  <div class="container position-relative d-flex flex-column align-items-center">
+    <h2>Feedbacks List</h2>
+    <ol>
+      <li><a href="index.html">Home</a></li>
+      <li>Feedbacks List</li>
+    </ol>
+  </div>
+</div>
+<!-- End Breadcrumbs -->
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let feedback of feedbacks; let i = index">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h5 class="card-title">Feedback {{ i + 1 }}</h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text"><strong>Submitted Date:</strong> {{ feedback.submitedDate }}</p>
+          <p class="card-text"><strong>Feedback Content:</strong> {{ feedback.feedBackContent }}</p>
+          <p class="card-text"><strong>Rating:</strong> {{ feedback.rating }}</p>
+          <p class="card-text"><strong>Feedback Type:</strong> {{ feedback.feedBackType }}</p>
+          <p class="card-text"><strong>Priority:</strong> {{ feedback.priority }}</p>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary" [routerLink]="['/edit-feedback', feedback.idFeedBack]">Edit</button>
+          <button class="btn btn-danger" (click)="deleteFeedback(feedback)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
